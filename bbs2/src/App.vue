@@ -1,42 +1,31 @@
 <template>
   <FixedTopBar/>
-  <div id="nav">
+  <!-- <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
-  </div>
+  </div> -->
 
   <div class="content-wrapper">
     <div class="container-fluid">
-      <!-- Breadcrumbs-->
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="#">Dashboard</a>
-        </li>
-        <li class="breadcrumb-item active">My Dashboard</li>
-      </ol>
+      <Breadcrumb />
+      <router-view />
+
       <!-- Icon Cards-->
-      <div class="row">
-          <router-view/>
-      </div>
+      <!-- <div class="row">
+          
+      </div> -->
     </div>
   </div>
-  
-    <!-- /.content-wrapper-->
-    <footer class="sticky-footer">
-      <div class="container">
-        <div class="text-center">
-          <small>Copyright © Your Website 2017</small>
-        </div>
-      </div>
-    </footer>
+
+  <Footer />
 
     <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
+    <!-- <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
-    </a>
+    </a> -->
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -52,28 +41,40 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 </template>
 
-<script lang="ts">
+<script>
+// @ is an alias to /src
 import { Options, Vue } from 'vue-class-component';
-import FixedTopBar from '@/components/navigation/FixedTopBar.vue'; // @ is an alias to /src
+import FixedTopBar from '@/components/navigation/FixedTopBar.vue'; 
+import Footer from '@/components/navigation/Footer.vue'; 
+import Breadcrumb from '@/components/common/breadcrumb.vue';
+import Articles from '@/components/common/articles.vue';
 
-@Options({
+export default {
   components: {
     FixedTopBar,
+    Footer,
+    Breadcrumb,
+    Articles,
   },
-})
-export default class App extends Vue {}
+  data() {
+    return {
+    }
+  }
+}
 </script>
 
-<style>
-
-</style>
 <style>
 #app {
   font-family: 'Malgun Gothic', Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  padding-top: 120px;
 }
 </style>
