@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li v-for="(menu, i) in menuList" :key="i" class="nav-item" data-toggle="tooltip" data-placement="right" title="{{menu.title}}">
-          <router-link to="{{menu.href}}" class="nav-link">
+          <router-link to="{{ menu.href }}" class="nav-link">
             <i class="fa fa-fw" :class="menu.icon"></i>
             <span class="nav-link-text">{{menu.text}}</span>
           </router-link>
@@ -125,14 +125,14 @@ export default {
     return {
       menuList: [{
         title: "Dashboard",
-        href: "index.html",
+        href: "http://localhost:8080/dashboard",
         icon: "fa-dashboard",
         text: "Dashboard"
       },{
-        title: "Charts",
-        href: "charts.html",
+        title: "Articles",
+        href: "http://localhost:8080/articles",
         icon: "fa-area-chart",
-        text: "Charts"
+        text: "Articles"
       }]
     }
   }

@@ -1,4 +1,5 @@
 <template>
+
   <div class="card mb-3">
     <div class="card-header"><i class="fa fa-table"></i> 게시판</div>
     <div class="card-body">
@@ -81,6 +82,10 @@
 export default {
   data() {
     return {
+      editorText: 'This is initialValue.',
+      editorOptions: {
+        hideModeSwitch: true
+      },
       header_names: ["순번", "제목", "작성자", "작성일", "조회수"],
       records: [
         {
@@ -175,39 +180,6 @@ export default {
           is_active: false,
         },
       ],
-
-      //   <li
-      //     class="paginate_button page-item previous disabled"
-      //     id="dataTable_previous"
-      //   >
-      //     <a
-      //       href="#"
-      //       aria-controls="dataTable"
-      //       data-dt-idx="0"
-      //       tabindex="0"
-      //       class="page-link"
-      //       >Previous</a
-      //     >
-      //   </li>
-      //   <li class="paginate_button page-item active">
-      //     <a
-      //       href="#"
-      //       aria-controls="dataTable"
-      //       data-dt-idx="1"
-      //       tabindex="0"
-      //       class="page-link"
-      //       >1</a
-      //     >
-      //   </li>
-      //   <li class="paginate_button page-item">
-      //     <a
-      //       href="#"
-      //       aria-controls="dataTable"
-      //       data-dt-idx="2"
-      //       tabindex="0"
-      //       class="page-link"
-      //       >2</a
-      //     >
     };
   },
 };
