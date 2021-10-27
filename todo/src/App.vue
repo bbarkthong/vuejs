@@ -1,9 +1,9 @@
 <template>
   <div>
     <Header />
-    <Input v-on:insertTodo="insertTodo" />
-    <List v-on:deleteTodo="deleteTodo" v-on:toggleCompleteTodo="toggleCompleteTodo" v-bind:propsdata="todos" />
-    <Footer v-on:truncateTodo="truncateTodo" />
+    <Input />
+    <List />
+    <Footer />
   </div>
 </template>
 
@@ -20,49 +20,6 @@ export default {
     Input,
     List,
     Footer,
-  },
-  methods: {
-    insertTodo: function (todo) {
-      var item = {
-        title: todo,
-        complete: false,
-      };
-      localStorage.setItem(todo, JSON.stringify(item));
-      this.todos.push(item);
-    },
-    deleteTodo: function (todo, index) {
-      localStorage.removeItem(todo.title);
-      this.todos.splice(index, 1);
-    },
-    toggleCompleteTodo: function (todo) {
-      localStorage.setItem(todo.title, JSON.stringify(todo));
-    },
-    truncateTodo: function () {
-      localStorage.clear();
-      this.todos = [];
-    },
-  },
-  created() {
-    for (var i = 0; i < localStorage.length; i++) {
-      var key = localStorage.key(i);
-      if (key !== "loglevel:webpack-dev-server") {
-        this.todos.push(JSON.parse(localStorage.getItem(key)));
-      }
-    }
-  },
-  data() {
-    return {
-      todos: [
-        {
-          title: "List #1",
-          complete: false,
-        },
-        {
-          title: "List #2",
-          complete: true,
-        },
-      ],
-    };
   },
 };
 </script>

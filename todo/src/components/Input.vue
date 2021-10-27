@@ -27,7 +27,7 @@ export default {
       if (this.newTodo == "") {
         alert("할일을 입력하세요.");
       } else {
-        this.$emit("insertTodo", this.newTodo);
+        this.$store.commit("insertTodo", this.newTodo);
         this.newTodo = "";
       }
     },

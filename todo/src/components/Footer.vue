@@ -10,7 +10,7 @@
 export default {
   methods: {
     truncateTodo: function () {
-      this.$emit("truncateTodo");
+      this.$store.commit("truncateTodo");
     },
   },
 };

@@ -2,7 +2,7 @@
   <ul class="list-group todo-input">
     <li
       class="list-group-item"
-      v-for="(todo, index) in propsdata"
+      v-for="(todo, index) in this.$store.state.todos"
       v-bind:key="index"
     >
       <input
@@ -23,16 +23,12 @@
 
 <script>
 export default {
-  props: [
-    'propsdata'
-  ],
   methods: {
     deleteTodo: function(todo, index) {
-      this.$emit('deleteTodo',todo, index)
+      this.$store.commit("deleteTodo", todo, index)
     },
     toggleCompleteTodo: function(todo) {
-      console.log("toggleCompleteTodo")
-      this.$emit('toggleCompleteTodo',todo)
+      this.$store.commit("toggleCompleteTodo", todo)
     }
   },
 };
