@@ -14,8 +14,6 @@ const storage = {
 }
 
 const store = createStore({
-//export const store = new Vuex.Store({
-  //
   state: {
     todos: storage.fetch()
   },
