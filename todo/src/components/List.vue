@@ -2,7 +2,7 @@
   <ul class="list-group todo-input">
     <li
       class="list-group-item"
-      v-for="(todo, index) in this.$store.state.todos"
+      v-for="(todo, index) in getTodos"
       v-bind:key="index"
     >
       <input
@@ -22,14 +22,17 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
+
 export default {
   methods: {
-    deleteTodo: function(todo, index) {
-      this.$store.commit("deleteTodo", todo, index)
-    },
-    toggleCompleteTodo: function(todo) {
-      this.$store.commit("toggleCompleteTodo", todo)
-    }
+    ...mapMutations({
+      deleteTodo: 'deleteTodo',
+      toggleCompleteTodo: 'toggleCompleteTodo'
+    }),
+  },
+  computed: {
+    ...mapGetters(['getTodos'])
   },
 };
 </script>
